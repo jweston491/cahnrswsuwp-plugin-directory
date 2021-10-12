@@ -1,0 +1,44 @@
+.wsuwp-f-checkbox__wrapper,
+.wsuwp-f-text-field__wrapper {
+	padding-bottom: 0.75rem;
+	padding-top: 0.75rem;
+}
+
+.wsuwp-f-checkbox__wrapper label {
+	font-size: 1rem;
+}
+
+.wsuwp-f-text-field__wrapper label {
+	font-size: 1rem;
+	display: block;
+	padding-bottom: 0.25rem;
+}
+
+.wsuwp-f-text-field {
+	width: 400px;
+	max-width: 100%;
+	height: 40px;
+	font-size: 1rem;
+	border: 1px solid #040404;
+	border-radius: 3px;
+}
+
+.wsupw-f-header {
+	font-size: 1.5rem !important;
+	font-weight: bold !important;
+	padding-bottom: 0.5rem !important;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	margin-bottom: 1rem !important;
+	margin-top: 2rem !important;
+	padding-left: 0 !important;
+}
+
+.wsuwp-f-pad-none {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.wsuwp-f-pad-less {
+	padding-top: 0.25rem !important;
+	padding-bottom: 0.25rem !important;
+}
