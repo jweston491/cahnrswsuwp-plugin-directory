@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/washingtonstateuniversity/cahnrswsuwp-plugin-directories
  * Description: 
  * Author: Washington State University, Danial Bleile
- * Version: 0.0.2
+ * Version: 0.1.0
  * Author URI: https://web.wsu.edu
  */
 
