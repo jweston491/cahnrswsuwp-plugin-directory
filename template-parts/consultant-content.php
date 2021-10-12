@@ -80,11 +80,14 @@
 			<li class="cahnrswsuwp-c-dir__profile-consultant__optional">
 				<span>Carries Surety Bond:</span> <?php echo esc_html( $consultant->get_option( '_surety_bond' ) ); ?>
 			</li>
-			<li class="cahnrswsuwp-c-dir__profile-consultant__optional">
-				<span>Licensed Pesticide Applicators on staff:</span> <?php echo esc_html( $consultant->get_option( '_pesticide_applicators' ) ); ?>
-			</li>
 			<li class="cahnrswsuwp-c-dir__profile-consultant__consulting">
-				<span>Certified Wildfire Mitigation Specialist(s) (CWMS) on staff:</span> <?php echo esc_html( $consultant->is_yes( $consultant->get_option( '_cwms' ) ) ); ?>
+				<span>Licenses and Certifications:</span> <?php echo esc_html( $consultant->get_option( '_licences_certifications', 
+					// Default values for deprecated fields
+					implode( ", ", array_filter( array( 
+						( ( empty( $consultant->get_option( '_pesticide_applicators' ) ) || $consultant->get_option( '_pesticide_applicators' ) === 'No' ) ? null : 'Licensed Pesticide Applicator' ),
+						( empty( (bool)$consultant->get_option( '_cwms' ) ) ? null : 'Certified Wildfire Mitigation Specialist (CWMS)' ) 
+					) ) ) )  
+				); ?>
 			</li>
 			<li class="cahnrswsuwp-c-dir__profile-consultant__consulting">
 				<span>NRCS Technical Service Provider (TSP):</span> <?php echo esc_html( $consultant->is_yes( $consultant->get_option( '_tsp' ) ) ); ?>
@@ -96,6 +99,13 @@
 			</li>
 			<li class="cahnrswsuwp-c-dir__profile-consultant__consulting">
 				<span>Professional Affiliations:</span> <?php echo esc_html( $consultant->get_option( '_affiliations' ) ); ?>
+			</li>
+			<li class="cahnrswsuwp-c-dir__profile-consultant__consulting">
+				<span>Registered Washington State Farm Labor Contractor for Reforestation:</span> <?php echo ( !empty( $consultant->get_option( '_sfl' ) ) ) ? 'Yes' : 'No';
+				echo ( $consultant->get_option( '_sfl' ) ) ? '<br/><a href="https://lni.wa.gov/workers-rights/farm-labor-contractors/farm-labor-contractor-licensing#verify-a-farm-labor-contractor">Verify a farm labor contractor</a>' : '';
+				
+				?>
+				
 			</li>
 		</ul>
 	</div>

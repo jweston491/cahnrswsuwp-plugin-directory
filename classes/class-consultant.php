@@ -5,36 +5,39 @@ class Consultant extends Entry {
 	protected $options = array();
 	protected $title;
 	protected $link;
+	
 	protected $default_options = array(
-		'_address'               => '',
-		'_phone'                 => '',
-		'_state'                 => '',
-		'_fax'                   => '',
-		'_city'                  => '',
-		'_email'                 => '',
-		'_zip'                   => '',
-		'_website'               => '',
-		'_service_forestry'      => '',
-		'_service_silvicultural' => '',
-		'_other_services'        => '',
-		'_education'             => '',
-		'_liablility_insurance'  => '',
-		'_surety_bond'           => '',
-		'_pesticide_applicators' => '',
-		'_macf'                  => '',
-		'_saf'                   => '',
-		'_sfl'                   => '',
-		'_flc'                   => '',
-		'_tsp'                   => '',
-		'_tsp_number'            => '',
-		'_cwms'                  => '',
-		'_taxonomy'              => '',
-		'_affiliations'          => '',
+		'_address'                 => '',
+		'_phone'                   => '',
+		'_state'                   => '',
+		'_fax'                     => '',
+		'_city'                    => '',
+		'_email'                   => '',
+		'_zip'                     => '',
+		'_website'                 => '',
+		'_service_forestry'        => '',
+		'_service_silvicultural'   => '',
+		'_other_services'          => '',
+		'_education'               => '',
+		'_liablility_insurance'    => '',
+		'_surety_bond'             => '',
+		'_pesticide_applicators'   => '',
+		'_macf'                    => '',
+		'_saf'                     => '',
+		'_sfl'                     => '',
+		'_flc'                     => '',
+		'_tsp'                     => '',
+		'_tsp_number'              => '',
+		'_cwms'                    => '',
+		'_taxonomy'                => '',
+		'_affiliations'            => '',
+		'_licences_certifications' => '',
 	);
 
 
 	public function __construct( $post = false ) {
 
+		// $this->default_options['_licences_certifications'] = $this->default_license_cert();
 		$this->set_consultant( $post );
 
 	}
@@ -60,7 +63,6 @@ class Consultant extends Entry {
 			return $this->options[ $option ];
 
 		}
-
 		return $default;
 
 	}
@@ -113,13 +115,22 @@ class Consultant extends Entry {
 
 					$terms = get_the_terms( $post, $taxonomy );
 
-					foreach ( $terms as $term ) {
-
-						$this->options['_taxonomy'][ $taxonomy ][] = $term->slug;
-
+					if ( $terms ) {
+						foreach ( $terms as $term ) {
+							$this->options['_taxonomy'][ $taxonomy ][] = $term->slug;
+						}
 					}
+					
 				}
 
+			}
+
+			// 
+			if ( !metadata_exists( 'post', $post_id, '_licences_certifications' ) ) {
+				$this->options[ '_licences_certifications' ] = implode( ", ", array_filter( array( 
+					( empty( $this->get_option( '_pesticide_applicators' ) ) || $this->get_option( '_pesticide_applicators' ) === 'No' ) ? null : 'Licensed Pesticide Applicator',
+					( empty( (bool)$this->get_option( '_cwms' ) ) ? null : 'Certified Wildfire Mitigation Specialist (CWMS)' )   ) ) 
+				);
 			}
 		} // End if
 

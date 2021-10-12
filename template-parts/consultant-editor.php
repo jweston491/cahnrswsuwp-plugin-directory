@@ -58,13 +58,31 @@
 	'Surety Bond'
 ); ?>
 
-<?php Forms::text_field(
-	'_pesticide_applicators',
-	$consultant->get_option( '_pesticide_applicators' ),
-	'Licensed Pesticide Applicators'
+<?php 
+
+/**
+ * @deprecated
+ */
+// Forms::text_field(
+// 	'_pesticide_applicators',
+// 	$consultant->get_option( '_pesticide_applicators' ),
+// 	'Licensed Pesticide Applicators'
+// ); 
+?>
+
+<?php 
+Forms::text_field(
+	'_licences_certifications',
+	$consultant->get_option( '_licences_certifications' ),
+	'Licenses and Certifications'
 ); ?>
 
-<?php Forms::checkbox( '_cwms', 1, $consultant->get_option( '_cwms' ), 'Certified Wildfire Mitigation Specialist(s) (CWMS) on staff' ); ?>
+<?php 
+/**
+ * @deprecated
+ */
+// Forms::checkbox( '_cwms', 1, $consultant->get_option( '_cwms' ), 'Certified Wildfire Mitigation Specialist(s) (CWMS) on staff' ); 
+?>
 <?php Forms::checkbox( '_tsp', 1, $consultant->get_option( '_tsp' ), 'NRCS Technical Service Provider (TSP)' ); ?>
 <?php Forms::text_field( '_tsp_number', $consultant->get_option( '_tsp_number' ), 'TSP ID Number' ); ?>
 
@@ -75,7 +93,11 @@
 ); ?>
 
 <?php Forms::header( 'For Consulting Foresters' ); ?>
-<?php Forms::checkbox( '_sfl', 1, $consultant->get_option( '_sfl' ), 'Registered Washington State Farm Labor Contractor' ); ?>
-<?php Forms::text_field( '_flc', $consultant->get_option( '_flc' ), 'FLC license number' ); ?>
+<?php Forms::checkbox( '_sfl', 1, $consultant->get_option( '_sfl' ), 'Registered Washington State Farm Labor Contractor for Reforestation' ); ?>
+<?php
+/**
+ * @deprecated
+ */
+// Forms::text_field( '_flc', $consultant->get_option( '_flc' ), 'FLC license number' ); ?>
 
 <?php Forms::header( 'Business Description and Remarks:' ); ?>

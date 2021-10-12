@@ -4,12 +4,14 @@ class Service {
 
 	protected static $terms = array(
 		'slash-disposal'                  => 'Brush/slash disposal',
-		'gis'                             => 'GIS mapping services',
+		'inventory'                       => 'Forest inventory/appraisal/timber cruising',
 		'forest-management-advice'        => 'Forest management advice',
 		'forest-management-plan-writing'  => 'Forest management plan writing',
-		'inventory'                       => 'Forest inventory/appraisal/timber cruising',
 		'practices-permitting'            => 'Forest practices permitting',
 		'security-consulting'             => 'Forestland security consulting',
+		'fuels-reduction'                 => 'Fuels reduction',
+		'gis'                             => 'GIS mapping services',
+		'hazard-tree-assessment'          => 'Hazard tree assessment',
 		'invasive-species-control'        => 'Invasive species identification and control',
 		'non-timber-products'             => 'Non-timber forest products',
 		'pre-commercial-thinning'         => 'Pre-commercial thinning',
@@ -24,9 +26,8 @@ class Service {
 		'trail-construction'              => 'Trail/Boardwalk construction',
 		'vegetation-control-chemical'     => 'Vegetation control/release – chemical',
 		'vegetation-control-mechanical'   => 'Vegetation control/release – mechanical',
-		'wildlife-enhancement'            => 'Wildlife enhancement',
 		'wildlife-damage'                 => 'Wildlife damage control',
-		'fuels-reduction'                 => 'Fuels reduction',
+		'wildlife-enhancement'            => 'Wildlife enhancement',
 	);
 
 	public static function get_terms() {

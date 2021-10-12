@@ -37,6 +37,7 @@ class Directory_Forester extends Directory_Base {
 		'_cwms'                  => array( 'type' => 'text' ),
 		'_taxonomy'              => array( 'type' => 'taxonomy_array' ),
 		'_affiliations'          => array( 'type' => 'text' ),
+		'_licences_certifications'          => array( 'type' => 'text' ),
 	);
 
 	public function __construct() {
